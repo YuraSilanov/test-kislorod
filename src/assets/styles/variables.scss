@@ -1,0 +1,33 @@
+$sm: 768px;
+$lg: 1440px;
+$gap: 16px;
+$gap-sm: 30px;
+$color-text-primary: #1a1a1a;
+$color-text-secondary: #b1b1b1;
+$color-accent: #ffb648;
+$color-border: #f6f6f6;
+$color-background: #fff;
+$color-error: #ea2828;
+$color-link: #0d78ff;
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == sm {
+    @media (min-width: #{$sm}) {
+      @content;
+    }
+  } @else if $breakpoint == lg {
+    @media (min-width: #{$lg}) {
+      @content;
+    }
+  } @else {
+    @warn "Неизвестный брейкпоинт: #{$breakpoint}";
+  }
+}
+
+@mixin hover-effect {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @content;
+    }
+  }
+}
