@@ -1,3 +1,4 @@
+import '@/assets/styles/main.scss';
 import 'virtual:svg-icons-register';
 import '@/components/form/input-file/input-file.js';
 import '@/components/form/input/input-required.js';

@@ -1,21 +1,13 @@
-doctype html
-html(lang="en")
-	head
-		meta(charset="UTF-8")
-		meta(name="viewport" content="width=device-width, initial-scale=1.0")
-		title Test Kislorod
-		link(rel="stylesheet" href="/src/assets/styles/main.scss")
-	body
-		.layout
-			.layout__container
-				main.page-index
-					h1 Отзывы о товаре (2)
-					.page-index__row
-						.page-index__col
-							include ../components/review/review.pug
-							+review("Балашова Татьяна", true)
-							+review("Иванова Елена", false)
-						.page-index__col
-							include ../components/review-form/review-form.pug
+.layout
+	.layout__container
+		main.page-index
+			h1 Отзывы о товаре (2)
+			.page-index__row
+				.page-index__col
+					include ../components/review/review.pug
+					+review("Балашова Татьяна", true)
+					+review("Иванова Елена", false)
+				.page-index__col
+					include ../components/review-form/review-form.pug
 
-		script(type="module" src="/src/assets/js/main.js")
+script(type="module" src="/src/assets/js/main.js")
