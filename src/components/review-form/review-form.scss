@@ -1,16 +1,16 @@
 @use '@/assets/styles/variables' as *;
 
 .review-form {
-	padding: 30px;
+	padding: 33px 30px;
 	border-radius: 10px;
 	background-color: $color-bg-form;
 
 	&__title {
-		margin-bottom: 30px;
+		margin-bottom: 34px;
 	}
 
 	&__item {
-		margin-bottom: 20px;
+		margin-bottom: 23px;
 	}
 
 	&__success {

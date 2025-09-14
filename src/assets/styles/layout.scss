@@ -8,14 +8,14 @@
 	&__container {
 		max-width: calc($lg + 2 * $gap-sm);
 		margin: 0 auto;
-		padding: 40px $gap;
+		padding: 60px $gap 40px;
 
 		@include respond(sm) {
-			padding: 40px $gap-sm;
+			padding: 60px $gap-sm;
 		}
 
 		@include respond(lg) {
-			padding-top: 80px;
+			padding-top: 100px;
 			padding-bottom: 120px;
 		}
 	}
