@@ -1,0 +1,99 @@
+@use '@/assets/styles/variables' as *;
+
+.input-file {
+	position: relative;
+
+	&__label {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 20px;
+		text-align: center;
+		border: 1px dashed $color-text-secondary;
+		border-radius: 5px;
+		color: $color-text-secondary;
+		background-color: $color-background;
+		transition: $transition;
+		cursor: pointer;
+
+		@include hover-effect {
+			border-color: $color-link;
+			background-color: #e6f3fd;
+		}
+	}
+
+	&__icon-download {
+		display: block;
+		width: 40px;
+		height: 40px;
+		margin: 0 auto 10px;
+		color: $color-link;
+	}
+
+	&__field {
+		position: absolute;
+		z-index: -1;
+		opacity: 0;
+	}
+
+	&__preview {
+		display: contents; // превью не ломает grid
+	}
+
+	&__photo-item {
+		position: relative;
+		width: 90px;
+		height: 120px;
+		border-radius: 5px;
+		overflow: hidden;
+	}
+
+	&__photo-delete {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+		width: 20px;
+		height: 20px;
+		border: none;
+		background: url('@/assets/icons/close-colored.svg') center center / 12px 12px
+			no-repeat $color-delete;
+		border-radius: 50%;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__photo {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	&--active {
+		display: grid;
+		grid-template-columns: 90px repeat(auto-fill, 90px);
+		grid-auto-rows: 120px;
+		gap: 6px;
+
+		& .input-file__label {
+			width: 90px;
+			height: 120px;
+			grid-column: 1;
+			grid-row: 1;
+			font-size: 0;
+		}
+
+		& .js-input-file__photo-item:first-child {
+			grid-column: 2;
+			grid-row: 1;
+		}
+	}
+
+	&--error {
+		& .input-file__label {
+			border-color: $color-error;
+		}
+	}
+}

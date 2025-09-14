@@ -1,0 +1,13 @@
+mixin input-rating(className,name, maxStars=5)
+  .input-rating(class=className)
+    each star in [...Array(maxStars).keys()].reverse()
+      - const index = star + 1
+      input.input-rating__input(
+        type="radio"
+        id=`${name}-${index}`
+        name=name
+        value=index
+      )
+      label.input-rating__star(for=`${name}-${index}`)
+        svg.input-rating__icon(aria-hidden="true")
+          use(xlink:href="#icon-star")

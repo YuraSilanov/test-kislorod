@@ -1,2 +1,3 @@
-console.dir(1);
-console.dir(2);
+import 'virtual:svg-icons-register';
+import '@/components/form/input-file/input-file.js';
+import '@/components/review-form/review-form.js';

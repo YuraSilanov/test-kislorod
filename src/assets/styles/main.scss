@@ -2,3 +2,10 @@
 @use 'fonts';
 @use 'layout';
 @use 'scaffolding';
+@use '@/components/review/review';
+@use '@/components/review-form/review-form';
+@use '@/components/form/input/input';
+@use '@/components/form/input-rating/input-rating';
+@use '@/components/form/textarea/textarea';
+@use '@/components/form/input-file/input-file';
+@use '@/components/button/button';

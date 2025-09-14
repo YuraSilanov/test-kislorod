@@ -1,11 +1,22 @@
 @use 'variables' as *;
 
 .layout {
-  min-width: 360px;
-  max-width: 1920px;
-  margin: 0 auto;
+	min-width: 360px;
+	max-width: 1920px;
+	margin: 0 auto;
 
-  &__container {
-    max-width: $lg;
-  }
+	&__container {
+		max-width: calc($lg + 2 * $gap-sm);
+		margin: 0 auto;
+		padding: 40px $gap;
+
+		@include respond(sm) {
+			padding: 40px $gap-sm;
+		}
+
+		@include respond(lg) {
+			padding-top: 80px;
+			padding-bottom: 120px;
+		}
+	}
 }

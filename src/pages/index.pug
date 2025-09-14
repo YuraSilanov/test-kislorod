@@ -1,13 +1,21 @@
 doctype html
 html(lang="en")
-  head
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Vite + Pug + SCSS
-    link(rel="stylesheet" href="/assets/styles/main.scss")
-  body
-    h1 Hello Vite + Pug
-div
-  p Test
-    span Oops
-    script(type="module" src="/assets/js/main.js")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0")
+		title Test Kislorod
+		link(rel="stylesheet" href="/src/assets/styles/main.scss")
+	body
+		.layout
+			.layout__container
+				.page-index
+					h1 Отзывы о товаре (2)
+					.page-index__row
+						.page-index__col
+							include ../components/review/review.pug
+							+review("Балашова Татьяна", true)
+							+review("Иванова Елена", false)
+						.page-index__col
+							include ../components/review-form/review-form.pug
+
+		script(type="module" src="/src/assets/js/main.js")

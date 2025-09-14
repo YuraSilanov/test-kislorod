@@ -1,0 +1,4 @@
+mixin textarea(className, label, placeholder, required)
+	.textarea(class=className)
+		.textarea__label(class=required ? 'textarea__label--required' : '')= label
+		textarea.textarea__field(placeholder=placeholder required=required)

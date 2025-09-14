@@ -18,6 +18,7 @@
     "eslint-plugin-pug": "^1.2.5",
     "husky": "^8.0.0",
     "lint-staged": "^16.1.6",
+    "postcss-scss": "^4.0.9",
     "prettier": "^3.6.2",
     "pug": "^3.0.3",
     "sass": "^1.92.1",
@@ -31,12 +32,11 @@
     "vite-plugin-pug": "^0.4.1",
     "vite-plugin-stylelint": "^6.0.2"
   },
-  "lint-staged": {
-  "src/**/*.js": [
-    "npx eslint --fix"
-  ],
-  "src/**/*.scss": [
-    "npx stylelint --fix"
-  ]
-}
+"lint-staged": {
+  "src/**/*.js": ["eslint --fix", "prettier --write"],
+  "src/**/*.scss": ["stylelint --fix"]
+},
+  "dependencies": {
+    "vite-plugin-svg-icons": "^2.0.1"
+  }
 }

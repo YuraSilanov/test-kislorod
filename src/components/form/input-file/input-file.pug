@@ -1,0 +1,11 @@
+mixin input-file(className)
+  .input-file.js-input-file(class=className)
+    label.input-file__label
+      input.input-file__field.js-input-file__field(type="file" multiple accept="image/jpeg, image/png")
+      svg.input-file__icon-download(aria-hidden="true")
+        use(xlink:href="#icon-download")
+      span.input-file__text
+        | Загрузить фотографии. Максимальный вес 10 мегабайт.
+        br
+        | Расширение jpeg, png
+    .input-file__preview.js-input-file__preview

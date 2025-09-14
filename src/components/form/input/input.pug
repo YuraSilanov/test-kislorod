@@ -1,0 +1,4 @@
+mixin input(className, label, placeholder, required)
+	.input(class=className)
+		.input__label(class=required ? 'input__label--required' : '')= label
+		input.input__field(type="text" placeholder=placeholder required=required)

@@ -2,38 +2,40 @@ import { defineConfig } from 'vite';
 import pugPlugin from 'vite-plugin-pug';
 import eslint from 'vite-plugin-eslint';
 import stylelint from 'vite-plugin-stylelint';
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 import path from 'path';
 
 export default defineConfig({
-  plugins: [
-    pugPlugin(),
+	plugins: [
+		createSvgIconsPlugin({
+			iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
+			symbolId: 'icon-[name]',
+		}),
+		pugPlugin(),
+		eslint({
+			cache: false,
+			include: ['src/**/*.js', 'src/**/*.pug'],
+			emitWarning: true,
+			emitError: true,
+			failOnWarning: false,
+			failOnError: false,
+		}),
 
-    eslint({
-      cache: false,
-      include: ['src/**/*.js', 'src/**/*.pug'],
-      emitWarning: true,
-      emitError: true,
-      failOnWarning: false,
-      failOnError: false,
-    }),
- 
-    stylelint({
-      include: ['src/**/*.{css,scss,sass}'],
-      emitErrors: true,   
-      emitWarnings: true,
-      failOnError: false,
-    }),
-  ],
+		stylelint({
+			include: ['src/**/*.{css,scss,sass}'],
+			emitErrors: true,
+			emitWarnings: true,
+			failOnError: false,
+		}),
+	],
 
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, 'src'),
-    },
-  },
+	resolve: {
+		alias: {
+			'@': path.resolve(__dirname, 'src'),
+		},
+	},
 
-  root: 'src',
-
-  build: {
-    outDir: '../dist',
-  },
+	build: {
+		outDir: '../dist',
+	},
 });

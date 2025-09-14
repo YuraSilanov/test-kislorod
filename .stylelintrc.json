@@ -1,8 +1,14 @@
 {
   "plugins": ["stylelint-prettier", "stylelint-scss"],
   "extends": ["stylelint-config-standard-scss", "stylelint-prettier/recommended"],
+  "customSyntax": "postcss-scss",
   "rules": {
     "prettier/prettier": true,
-    "font-family-name-quotes": null
+    "font-family-name-quotes": null,
+    "scss/at-rule-no-unknown": true,
+    "scss/dollar-variable-colon-space-after": "always",
+    "scss/dollar-variable-colon-space-before": "never",
+    "selector-class-pattern": "^[a-z0-9\\-]+(__[a-z0-9\\-]+)?(--[a-z0-9\\-]+)?$",
+    "no-descending-specificity": null
   }
 }

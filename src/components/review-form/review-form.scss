@@ -1,0 +1,15 @@
+@use '@/assets/styles/variables' as *;
+
+.review-form {
+	padding: 30px;
+	border-radius: 10px;
+	background-color: $color-bg-form;
+
+	&__title {
+		margin-bottom: 30px;
+	}
+
+	&__item {
+		margin-bottom: 20px;
+	}
+}
