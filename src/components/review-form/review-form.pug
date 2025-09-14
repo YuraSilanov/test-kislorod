@@ -1,14 +1,18 @@
-form.review-form.js-review-form
-	h2.review-form__title Оставить свой отзыв
-	include ../form/input/input.pug
-	+input("review-form__item", "Как вас зовут?", "Иван Иванов", true)
-	+input("review-form__item js-input-email", "E-mail", "@", false)
-	+input("review-form__item js-input-phone", "Контактный телефон", "+7", false)
-	include ../form/input-rating/input-rating.pug
-	+input-rating("review-form__item", "reviewStars", 5)
-	include ../form/textarea/textarea.pug
-	+textarea("review-form__item", "Комментарий", "Введите текст", true)
-	include ../form/input-file/input-file.pug
-	+input-file("review-form__item")
-	include ../button/button.pug
-	+button("Отправить")
+form.review-form.js-review-form(novalidate)
+	.review-form__fields
+		h2.review-form__title Оставить свой отзыв
+		include ../form/input/input.pug
+		+input("review-form__item js-review-form__validation", "Как вас зовут?", "Иван Иванов", true)
+		+input("review-form__item js-review-form__validation js-input--email", "E-mail", "@", false)
+		+input("review-form__item js-review-form__validation js-input--phone", "Контактный телефон", "+7", false)
+		include ../form/input-rating/input-rating.pug
+		+input-rating("review-form__item", "reviewStars", 5)
+		+input("review-form__item js-review-form__validation", "Комментарий", "Введите текст", true, true)
+		include ../form/input-file/input-file.pug
+		+input-file("review-form__item js-review-form__validation")
+		include ../button/button.pug
+		+button("Отправить")
+	.review-form__success
+		div
+			h2.review-form__title Спасибо за  ваш отзыв!
+			p.review-form__success-text Ваш отзыв будет опубликован сразу после того, как его проверят наши сотрудники.

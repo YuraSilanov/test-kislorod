@@ -9,4 +9,13 @@
 	border: none;
 	outline: none;
 	transition: $transition;
+	cursor: pointer;
+
+	@include hover-effect {
+		background-color: $color-btn-hover;
+	}
+
+	&:active {
+		background-color: $color-btn-active;
+	}
 }

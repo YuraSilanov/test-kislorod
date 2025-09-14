@@ -12,4 +12,32 @@
 	&__item {
 		margin-bottom: 20px;
 	}
+
+	&__success {
+		display: none;
+		text-align: center;
+	}
+
+	&--success {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+
+		@include respond(lg) {
+			height: 796px;
+		}
+
+		& .review-form__title {
+			margin-bottom: 20px;
+		}
+
+		& .review-form__fields {
+			display: none;
+		}
+
+		& .review-form__success {
+			display: block;
+		}
+	}
 }

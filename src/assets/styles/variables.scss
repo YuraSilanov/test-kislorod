@@ -15,7 +15,9 @@ $color-bg-block: #f6f6f6;
 $color-bg-form: #f0f0f0;
 $color-placeholder: #8b8b8b;
 $color-delete: #1b2125;
-$transition: 0.3s ease;
+$color-btn-hover: #0b68dd;
+$color-btn-active: #0358c3;
+$transition: 0.5s ease;
 
 @mixin respond($breakpoint) {
 	@if $breakpoint == sm {

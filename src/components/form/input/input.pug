@@ -1,4 +1,7 @@
-mixin input(className, label, placeholder, required)
-	.input(class=className)
-		.input__label(class=required ? 'input__label--required' : '')= label
-		input.input__field(type="text" placeholder=placeholder required=required)
+mixin input(className, label, placeholder, required, textarea = false)
+	.input(class=[className, required ? 'input--required js-input--required' : ''].filter(Boolean).join(' '))
+		.input__label=label
+		if textarea
+			textarea.input__field.input__field--textarea(placeholder=placeholder required=required)
+		else
+			input.input__field(type="text" placeholder=placeholder required=required)

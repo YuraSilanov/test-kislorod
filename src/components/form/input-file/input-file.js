@@ -16,6 +16,11 @@ export default class InputFile {
 		this.preview.addEventListener('click', (e) => this.handleDelete(e));
 	}
 
+	validate() {
+		this.handleFiles();
+		return this.valid;
+	}
+
 	handleFiles() {
 		const files = Array.from(this.input.files);
 
@@ -53,11 +58,6 @@ export default class InputFile {
 			const btn = document.createElement('button');
 			btn.className = 'input-file__photo-delete js-input-file__photo-delete';
 			btn.type = 'button';
-			btn.innerHTML = `
-				<svg class="input-file__icon-close" aria-hidden="true">
-					<use xlink:href="#icon-close"></use>
-				</svg>
-			`;
 
 			const img = document.createElement('img');
 			img.className = 'input-file__photo';
@@ -68,7 +68,6 @@ export default class InputFile {
 			item.appendChild(img);
 			this.preview.appendChild(item);
 
-			// Ставим active, только если есть хотя бы одна картинка
 			if (!this.el.classList.contains('input-file--active')) {
 				this.el.classList.add('input-file--active');
 			}
