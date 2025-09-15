@@ -43,7 +43,6 @@ export default class InputFile {
 		const files = Array.from(this.input.files);
 
 		if (!files.length) {
-			// пользователь снял выбор → очистим превью
 			this.clear();
 			return;
 		}
@@ -62,7 +61,6 @@ export default class InputFile {
 
 		files.forEach((file) => this.addPreview(file));
 
-		// сброс input, чтобы можно было загрузить тот же файл ещё раз
 		this.input.value = '';
 	}
 
