@@ -4,6 +4,11 @@ export default class InputRequired {
 		this.field = this.container.querySelector('input, textarea');
 		this.valid = true;
 
+		this.minLength = 3;
+		this.maxLength = 40;
+
+		this.allowedPattern = /^[A-Za-zА-Яа-яЁё0-9\s]+$/;
+
 		this.init();
 	}
 
@@ -17,15 +22,35 @@ export default class InputRequired {
 	}
 
 	validate() {
-		if (this.field.hasAttribute('required') && !this.field.value.trim()) {
-			this.container.classList.add('input--error');
-			this.valid = false;
+		const value = this.field.value.trim();
+
+		if (this.field.hasAttribute('required') && !value) {
+			this.setError();
 			return false;
-		} else {
-			this.container.classList.remove('input--error');
-			this.valid = true;
-			return true;
 		}
+
+		if (value.length < this.minLength || value.length > this.maxLength) {
+			this.setError();
+			return false;
+		}
+
+		if (!this.allowedPattern.test(value)) {
+			this.setError();
+			return false;
+		}
+
+		this.clearError();
+		return true;
+	}
+
+	setError() {
+		this.container.classList.add('input--error');
+		this.valid = false;
+	}
+
+	clearError() {
+		this.container.classList.remove('input--error');
+		this.valid = true;
 	}
 }
 

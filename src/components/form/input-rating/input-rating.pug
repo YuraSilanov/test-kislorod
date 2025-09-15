@@ -8,6 +8,7 @@ mixin input-rating(className, name, maxStars = 5)
           id=`${name}-${star}`
           name=name
           value=star
+					checked=star === maxStars
         )
         label.input-rating__star(for=`${name}-${star}`)
           svg.input-rating__icon(aria-hidden="true")
