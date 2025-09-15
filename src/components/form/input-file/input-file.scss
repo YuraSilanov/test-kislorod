@@ -17,7 +17,9 @@
 		border-radius: 5px;
 		color: $color-text-secondary;
 		background-color: $color-background;
-		transition: $transition;
+		transition:
+			background-color $transition,
+			border-color $transition;
 		cursor: pointer;
 
 		@include hover-effect {

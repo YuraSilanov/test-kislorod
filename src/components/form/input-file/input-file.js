@@ -17,17 +17,11 @@ export default class InputFile {
 	}
 
 	validate() {
-		this.handleFiles();
-		return this.valid;
-	}
-
-	handleFiles() {
 		const files = Array.from(this.input.files);
 
 		if (!files.length) {
-			this.clear();
 			this.valid = true;
-			return;
+			return true;
 		}
 
 		const invalidFile = files.find(
@@ -37,15 +31,38 @@ export default class InputFile {
 		if (invalidFile) {
 			this.setError();
 			this.valid = false;
+			return false;
+		}
+
+		this.el.classList.remove('input-file--error');
+		this.valid = true;
+		return true;
+	}
+
+	handleFiles() {
+		const files = Array.from(this.input.files);
+
+		if (!files.length) {
+			// пользователь снял выбор → очистим превью
+			this.clear();
+			return;
+		}
+
+		const invalidFile = files.find(
+			(file) => !this.allowedTypes.includes(file.type) || file.size > this.maxSize
+		);
+
+		if (invalidFile) {
+			this.setError();
 			return;
 		}
 
 		this.el.classList.remove('input-file--error');
 		this.el.classList.add('input-file--active');
-		this.valid = true;
 
 		files.forEach((file) => this.addPreview(file));
 
+		// сброс input, чтобы можно было загрузить тот же файл ещё раз
 		this.input.value = '';
 	}
 
@@ -68,9 +85,7 @@ export default class InputFile {
 			item.appendChild(img);
 			this.preview.appendChild(item);
 
-			if (!this.el.classList.contains('input-file--active')) {
-				this.el.classList.add('input-file--active');
-			}
+			this.el.classList.add('input-file--active');
 		};
 		reader.readAsDataURL(file);
 	}
@@ -85,7 +100,6 @@ export default class InputFile {
 
 			if (!this.preview.querySelector('.js-input-file__photo-item')) {
 				this.valid = true;
-
 				this.el.classList.remove('input-file--active', 'input-file--error');
 			}
 		}
@@ -94,7 +108,6 @@ export default class InputFile {
 	setError() {
 		this.el.classList.remove('input-file--active');
 		this.el.classList.add('input-file--error');
-		this.preview.innerHTML = '';
 	}
 
 	clear() {
